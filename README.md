@@ -64,5 +64,5 @@ become_method: sudo
 
 Running Playbook using Jenkins
 
-Once all values are updated, you can then run the playbook against your nodes. To use a Declarative Pipeline all you need is to put the Jenkinsfile in the root of your project in source repository
+Once all values are updated, you can then run the playbook against your nodes. To use a Declarative Pipeline all you need is to put the Jenkinsfile in the root of your project in source repository and run related job through the Jenkins gui(localhost:8080) and check the out put in consul view
 
