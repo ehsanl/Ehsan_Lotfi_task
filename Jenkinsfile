@@ -1,7 +1,10 @@
-stage('Run ansible script') {
-   steps {
-        ansiblePlaybook(
-            playbook: "${env.PLAYBOOK_ROOT}/deploy_service.yaml",
-            inventory: "${env.PLAYBOOK_ROOT}/${env.INVENTORY}",
-          }
+pipeline {
+    agent { any }
+    stages {
+        stage('run ansible playbook') {
+            steps {
+                sh 'ansible-playbook -i hosts tomcat-setup.yml --ask-become-pass'
+            }
+        }
+    }
 }
