@@ -3,17 +3,16 @@ I am using Ubuntu 18.04 as my local os:
 First of all we assume that Ansible and Jenkins are installed before on the master server.
 This Ansible role contains tasks to:
 
-Install basic packages required
+  - Install basic packages required
 
-Install Java
+  - Install Java
 
-Add tomcat user and group
+  - Add tomcat user and group
 
-Download tomcat and install - configure systemd
+  - Download tomcat and install - configure systemd
 
-Configure firewall
 
-How to use this role
+How to use this role:
 
 Clone the Project:
 $ git clone https://github.com/ehsanl/Ehsan_Lotfi_task.git
@@ -33,13 +32,13 @@ $ vim tomcat-setup.yml
 
 - name: Tomcat deployment playbook
 
-  hosts: tomcat-nodes       # Inventory hosts group / server to act on
+  hosts: tomcat-nodes          # Inventory hosts group / server to act on
  
-  become: yes               # If to escalate privilege
+  become: yes                  # If to escalate privilege
   
-  become_method: sudo       # Set become method
+  become_method: sudo          # Set become method
   
-  remote_user: root         # Update username for remote server
+  remote_user: root            # Update username for remote server
   
   vars:
     
@@ -63,22 +62,7 @@ become: yes
 
 become_method: sudo
 
-Running Playbook
+Running Playbook using Jenkins
 
-Once all values are updated, you can then run the playbook against your nodes.
-
-Playbook executed as root user - with ssh key:
-$ ansible-playbook -i hosts tomcat-setup.yml
-
-Playbook executed as root user - with password:
-$ ansible-playbook -i hosts tomcat-setup.yml --ask-pass
-
-Playbook executed as sudo user - with password:
-$ ansible-playbook -i hosts tomcat-setup.yml --ask-pass --ask-become-pass
-
-Playbook executed as sudo user - with ssh key and sudo password:
-$ ansible-playbook -i hosts tomcat-setup.yml --ask-become-pass
-
-Playbook executed as sudo user - with ssh key and passwordless sudo:
-$ ansible-playbook -i hosts tomcat-setup.yml --ask-become-pass
+Once all values are updated, you can then run the playbook against your nodes. To use a Declarative Pipeline all you need is to put the Jenkinsfile in the root of your project in source repository
 
