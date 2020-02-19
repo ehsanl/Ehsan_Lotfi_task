@@ -3,7 +3,7 @@
   hosts: local        # Inventory hosts group / server to act on
   connection: local
   become: yes               # If to escalate privilege
-  #become_method: sudo       # Set become method
+  become_method: sudo       # Set become method
   remote_user: ehsan         # Update username for remote server
   vars:
     ansible_python_interpreter: /usr/bin/python3      
